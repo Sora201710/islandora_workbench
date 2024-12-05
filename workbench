@@ -3382,9 +3382,9 @@ def update_files():
         if "filename" in csv_column_headers:
             if len(row["filename"].strip()) != 0:
                 file["filename"] = [{"value": row["filename"]}]
-
+        file["type"] = [{"target_id": "file"}]
         file_endpoint = (
-            config["host"] + "/entity/file/" + row["file_id"] + "?_format=json"
+            config["host"] + "/file/" + row["file_id"] + "?_format=json"
         )
         file_headers = {"Content-Type": "application/json"}
         file_response = issue_request(
@@ -3396,26 +3396,26 @@ def update_files():
                 print(
                     "File "
                     + config["host"]
-                    + "/entity/file/"
+                    + "/file/"
                     + row["file_id"]
                     + " updated."
                 )
             logging.info(
                 "File %s updated.",
-                config["host"] + "/entity/file/" + row["file_id"],
+                config["host"] + "/file/" + row["file_id"],
             )
         else:
             if config["progress_bar"] is False:
                 print(
                     "File "
                     + config["host"]
-                    + "/entity/file/"
+                    + "/file/"
                     + row["file_id"]
                     + " could not be updated."
                 )
             logging.info(
                 "File %s could not be updated.",
-                config["host"] + "/entity/file/" + row["file_id"],
+                config["host"] + "/file/" + row["file_id"],
             )
 
         if config["progress_bar"] is True:

@@ -1,0 +1,5 @@
+task: update_files
+host: "https://d10test.digital.utsc.utoronto.ca"
+username: admin
+password: Iris4Lib
+input_csv: update_file.csv
